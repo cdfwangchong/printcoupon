@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cdfg.printcoupon.dao.PrintcouponDao">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select 
+        count(*)
+    from printcoupon
+    where card_id = #{cardId,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.cdfg.printcoupon.pojo.dto.User" useGeneratedKeys="false">
+    insert into printcoupon (card_id,`name`, fsdate
+      )
+    values (#{card_id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR}, now()
+      )
+  </insert>
+
+</mapper>
